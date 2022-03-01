@@ -40,13 +40,14 @@ export class AccountService {
       })
     )
   }
+  
+  logout() {
+    localStorage.removeItem('user');
+    this.currentUserSource.next(null);
+  }
 
   setCurrentUser(user: User) {
     this.currentUserSource.next(user)
   }
 
-  logout() {
-    localStorage.removeItem('user');
-    this.currentUserSource.next(null);
-  }
 }
